@@ -29,7 +29,7 @@ export default function CountryFilter({ regions }: CountryFilterProps) {
     }
 
     return (
-        <Menu as="div" className={`relative inline-block text-left my-[40px]`}>
+        <Menu as="div" className={`relative inline-block text-left my-[40px] lg:my-0`}>
             <div>
                 <MenuButton 
                     className={`
