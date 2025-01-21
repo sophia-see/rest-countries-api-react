@@ -3,6 +3,7 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { usePathname, useSearchParams, useRouter } from 'next/navigation';
+import { toTitleCase } from '../utils';
 
 interface CountryFilterProps {
     regions: string[];
@@ -10,13 +11,15 @@ interface CountryFilterProps {
 
 export default function CountryFilter({ regions }: CountryFilterProps) {
     const searchParams = useSearchParams();
+    const regionFilter = searchParams?.get("region");
     const pathname = usePathname();
     const { replace } = useRouter();
 
     const handleSelectRegion = (region: string) => {
         const params = new URLSearchParams(searchParams);
 
-        params.set('query', region.toLowerCase());
+        params.delete('country');
+        params.set('region', region.toLowerCase());
 
         replace(`${pathname}?${params.toString()}`);
     }
@@ -25,7 +28,7 @@ export default function CountryFilter({ regions }: CountryFilterProps) {
         <Menu as="div" className="relative inline-block text-left my-[40px]">
             <div>
                 <MenuButton className="inline-flex justify-center gap-x-1.5 rounded-md bg-white px-[24px] py-[14px] text-sm font-semibold text-gray-900 shadow-sm">
-                    Filter by Region
+                    {regionFilter ? `Region: ${toTitleCase(regionFilter)}` : "Filter by Region"}
                     <ChevronDownIcon aria-hidden="true" className="-mr-1 size-5 text-gray-400" />
                 </MenuButton>
             </div>

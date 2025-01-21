@@ -1,9 +1,14 @@
+"use client";
+
 import Image from 'next/image'
 import Link from 'next/link';
-import { JSX } from 'react';
+import React, { JSX } from 'react';
+import { fetchCountries } from '../api/data';
+import { Country } from '../api/types';
 
 interface CountriesProps {
-    countries: any[];
+    region: string | undefined;
+    country: string | undefined;
 }
 
 function CountryDetail ({label, value}: {label: string, value: string}): JSX.Element {
@@ -14,7 +19,39 @@ function CountryDetail ({label, value}: {label: string, value: string}): JSX.Ele
     )
 }
 
-export default function Countries ({ countries }: CountriesProps) {
+export default function Countries ({region, country}: CountriesProps) {
+    const [countries, setCountries] = React.useState<Country[]>([]);
+    const [isLoading, setIsLoading] = React.useState<boolean>(false);
+
+    React.useEffect(() => {
+        const fetchData = async () => {
+            setIsLoading(true);
+        
+            try {
+                const data = await fetchCountries(region || country, region ? "region" : "name");
+                setCountries(data);
+            } catch (error) {
+                console.error("Error fetching countries:", error);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+    
+        fetchData();
+    }, [region, country]);
+
+    if (isLoading) {
+        return (
+            <div>Loading...</div>
+        )
+    }
+
+    if (countries.length == 0) {
+        return (
+            <div>Nothing found</div>
+        )
+    }
+
     return (
         <section 
             className="
@@ -22,7 +59,8 @@ export default function Countries ({ countries }: CountriesProps) {
                 m-auto
             "
         >
-            {countries.map((country, index) => {
+            
+            {countries.map((country: Country, index: number) => {
                 const linkName = country.name.common.toLowerCase().replace(" ", "_");
                 return (
                     <Link

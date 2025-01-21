@@ -22,12 +22,12 @@ export async function fetchRegions() {
     }
 }
 
-export async function fetchCountries(region?: string) {
+export async function fetchCountries(value?: string, type?: string) {
     // https://restcountries.com/v3.1/region/europe?fields=name,population,flags,region,capital
     const baseUrl = "https://restcountries.com/v3.1/";
-    const fields = "?fields=name,population,flags,region,capital"
-    const finalUrl = `${baseUrl}${region ? "region/europe" : "all"}${fields}`
-
+    const fields = "?fields=name,population,flags,region,capital";
+    const finalUrl = `${baseUrl}${value ? `${type}/${value}` : "all"}${fields}`
+    console.log({finalUrl})
     try {
         const response = await fetch(finalUrl);
         if (!response.ok) {
@@ -38,7 +38,7 @@ export async function fetchCountries(region?: string) {
         return data;
 
     } catch (error) {
-        console.error('Error fetching countries:', error);
+        return [];
     }
 }
 
@@ -57,6 +57,7 @@ export async function fetchCountry(name: string) {
         return data;
 
     } catch (error) {
-        console.error('Error fetching country:', error);
+        // console.error('Error fetching country:', error);
+        return null;
     }
 }

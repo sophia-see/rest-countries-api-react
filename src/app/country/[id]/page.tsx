@@ -8,6 +8,12 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
     
     console.log({countryData})
 
+    if (!countryData) {
+        return (
+            <div>Country not found</div>
+        )
+    }
+
     return (
         <div>Country {id} Page</div>
     )

@@ -1,19 +1,17 @@
-import { Suspense } from "react";
-import { fetchCountries, fetchRegions } from "./api/data";
+import { fetchRegions } from "./api/data";
 import Countries from "./components/Countries";
 import CountryFilter from "./components/CountryFilter";
 import CountrySearch from "./components/CountrySearch";
 
 interface HomeProps {
   searchParams?: Promise<{
-    query?: string;
-    page?: string;
+    region?: string;
+    country?: string;
   }>;
 }
 export default async function Home(props: HomeProps) {
   const searchParams = await props.searchParams;
   const regions = await fetchRegions();
-  const countries = await fetchCountries(searchParams?.query);
 
   return (
     <div 
@@ -22,9 +20,9 @@ export default async function Home(props: HomeProps) {
         flex flex-col
       "
     >
-      <CountrySearch />
+      <CountrySearch country={searchParams?.country}/>
       <CountryFilter regions={regions}/>
-      <Countries countries={countries}/>
+      <Countries region={searchParams?.region} country={searchParams?.country}/>
     </div>
   );
 }
