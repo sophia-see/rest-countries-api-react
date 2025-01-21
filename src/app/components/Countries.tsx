@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link';
 import { JSX } from 'react';
 
 interface CountriesProps {
@@ -22,8 +23,9 @@ export default function Countries ({ countries }: CountriesProps) {
             "
         >
             {countries.map((country, index) => {
+                const linkName = country.name.common.toLowerCase().replace(" ", "_");
                 return (
-                    <div
+                    <Link
                         className="
                             flex flex-col gap-0
                             bg-white
@@ -32,6 +34,7 @@ export default function Countries ({ countries }: CountriesProps) {
                             overflow-hidden
                         "
                         key={index}
+                        href={`/country/${linkName}`}
                     >
                         <Image 
                             className="
@@ -58,10 +61,9 @@ export default function Countries ({ countries }: CountriesProps) {
                                 <CountryDetail label='Population' value={country.population.toLocaleString()} />
                                 <CountryDetail label='Region' value={country.region} />
                                 <CountryDetail label='Capital' value={country.capital[0]} />
-
                             </div>
                         </div>
-                    </div>
+                    </Link>
                 )
             })}
         </section>
