@@ -13,10 +13,11 @@ function CountriesContainer({ children }: { children: React.ReactNode }) {
     return (
         <section
             className="
-                flex flex-col gap-10 items-center mx-auto
+                flex flex-col 
+                gap-10 items-center justify-center lg:gap-[75px]
                 md:grid md:grid-cols-[repeat(auto-fill,_minmax(auto,264px))]
-                max-w-full
-                px-4
+                max-w-full 
+                mx-auto max-lg:px-4 lg:px-8
             "
         >
             {children}

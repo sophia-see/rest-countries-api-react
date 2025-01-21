@@ -50,6 +50,7 @@ export default function CountryCard ({country, index, isLoading = false}: Countr
     return (
         <Link
             className={`
+                mx-auto
                 flex flex-col gap-0
                 ${isDarkMode ? "text-dark-foreground bg-dark-background" : "text-light-foreground bg-light-background"}
                 h-[336px] max-sm:max-w-full max-w-[264px] w-[264px]

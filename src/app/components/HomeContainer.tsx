@@ -14,11 +14,13 @@ export default function HomeContainer ({
             className={`
                 min-h-screen
                 py-[24px] px-[16px]
-                flex flex-col 
+                flex flex-col
                 ${isDarkMode ? "text-main-dark-foreground bg-main-dark-background" : "text-main-light-foreground bg-main-light-background"}
             `}
         >
-            {children}
+            <div className="max-w-[1350px] w-full mx-auto">
+                {children}
+            </div>
         </div>
     )
 }

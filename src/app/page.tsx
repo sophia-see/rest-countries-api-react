@@ -16,7 +16,13 @@ export default async function Home(props: HomeProps) {
 
   return (
     <HomeContainer>
-      <div className="h-full flex flex-col lg:flex-row lg:justify-between lg:items-center lg:mx-[80px] lg:mb-[48px]">
+      <div 
+        className="
+          h-full 
+          flex flex-col lg:flex-row lg:justify-between lg:items-center 
+          lg:px-8 lg:mb-[48px]
+        "
+      >
         <CountrySearch country={searchParams?.country}/>
         <CountryFilter regions={regions}/>        
       </div>
