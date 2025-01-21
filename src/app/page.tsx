@@ -17,7 +17,7 @@ export default async function Home(props: HomeProps) {
     <div 
       className="
         py-[24px] px-[16px]
-        flex flex-col
+        flex flex-col 
       "
     >
       <CountrySearch country={searchParams?.country}/>

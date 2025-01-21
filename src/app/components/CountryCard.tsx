@@ -50,7 +50,7 @@ export default function CountryCard ({country, index, isLoading = false}: Countr
             className={`
                 flex flex-col gap-0
                 bg-white
-                max-w-[264px] h-[336px]
+                h-[336px] max-w-[264px] sm:w-[264px]
                 rounded-[5px]
                 overflow-hidden
                 ${isLoading ? "pointer-events-none" : ""}
