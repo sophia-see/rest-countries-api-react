@@ -2,6 +2,7 @@ import { fetchRegions } from "./api/data";
 import Countries from "./components/Countries";
 import CountryFilter from "./components/CountryFilter";
 import CountrySearch from "./components/CountrySearch";
+import HomeContainer from "./components/HomeContainer";
 
 interface HomeProps {
   searchParams?: Promise<{
@@ -14,15 +15,10 @@ export default async function Home(props: HomeProps) {
   const regions = await fetchRegions();
 
   return (
-    <div 
-      className="
-        py-[24px] px-[16px]
-        flex flex-col 
-      "
-    >
+    <HomeContainer>
       <CountrySearch country={searchParams?.country}/>
       <CountryFilter regions={regions}/>
       <Countries region={searchParams?.region} country={searchParams?.country}/>
-    </div>
+    </HomeContainer>
   );
 }

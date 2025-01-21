@@ -5,6 +5,7 @@ import Link from 'next/link';
 import React, { JSX } from 'react';
 import { fetchCountries } from '../api/data';
 import { Country } from '../api/types';
+import { useAppContext } from '../context/AppContext';
 
 function CountryDetail ({label, value}: {label: string, value?: string}): JSX.Element {
     return (
@@ -21,27 +22,28 @@ interface CountryProps {
 }
 
 export default function CountryCard ({country, index, isLoading = false}: CountryProps) {
+    const { isDarkMode } = useAppContext();
     const linkName = country?.name.common.toLowerCase().replace(" ", "_");
 
     const imageSkeleton = (
         <div
-            className="
+            className={`
                 w-[264px] h-[160px]
-                bg-gray-300 
+                ${isDarkMode ? "bg-gray-600" : "bg-gray-300" }
                 rounded-md 
                 animate-pulse
-            "
+            `}
         ></div>
     );
 
     const detailsSkeleton = (
         <div
-            className="
+            className={`
                 w-full h-[128px]
-                bg-gray-300 
+                ${isDarkMode ? "bg-gray-600" : "bg-gray-300" }
                 rounded-md 
                 animate-pulse
-            "
+            `}
         ></div>
     );
 
@@ -49,7 +51,7 @@ export default function CountryCard ({country, index, isLoading = false}: Countr
         <Link
             className={`
                 flex flex-col gap-0
-                bg-white
+                ${isDarkMode ? "text-dark-foreground bg-dark-background" : "text-light-foreground bg-light-background"}
                 h-[336px] max-w-[264px] sm:w-[264px]
                 rounded-[5px]
                 overflow-hidden
