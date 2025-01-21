@@ -29,7 +29,7 @@ export default function CountryFilter({ regions }: CountryFilterProps) {
     }
 
     return (
-        <Menu as="div" className={`relative inline-block text-left my-[40px] lg:my-0`}>
+        <Menu as="div" className={`relative inline-block w-auto text-left my-[40px] lg:my-0`}>
             <div>
                 <MenuButton 
                     className={`
@@ -48,8 +48,8 @@ export default function CountryFilter({ regions }: CountryFilterProps) {
             <MenuItems
                 transition
                 className={`
-                    absolute left-0 z-10
-                    mt-2 w-56 origin-top-right 
+                    absolute left-0 lg:right-0 z-10
+                    mt-2 w-[166px] origin-top-right 
                     rounded-md 
                     ${colorScheme}
                     shadow-lg ring-1 ring-black/5 

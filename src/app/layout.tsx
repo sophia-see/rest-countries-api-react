@@ -29,7 +29,7 @@ export default function RootLayout({
           className={`${nunitoSans.className} antialiased`}
         >
           <Header/>
-          <main className={`min-h-screen`}>
+          <main>
             {children}
           </main>
         </body>

@@ -52,7 +52,7 @@ export default function CountryCard ({country, index, isLoading = false}: Countr
             className={`
                 flex flex-col gap-0
                 ${isDarkMode ? "text-dark-foreground bg-dark-background" : "text-light-foreground bg-light-background"}
-                h-[336px] max-w-[264px] sm:w-[264px]
+                h-[336px] max-sm:max-w-full max-w-[264px] w-[264px]
                 rounded-[5px]
                 overflow-hidden
                 ${isLoading ? "pointer-events-none" : ""}

@@ -13,7 +13,7 @@ function CountriesContainer({ children }: { children: React.ReactNode }) {
     return (
         <section
             className="
-                flex flex-col gap-10 justify-items-center m-auto
+                flex flex-col gap-10 items-center mx-auto
                 md:grid md:grid-cols-[repeat(auto-fill,_minmax(auto,264px))]
                 max-w-full
                 px-4
@@ -50,7 +50,7 @@ export default function Countries({ region, country }: CountriesProps) {
     if (isLoading) {
         return (
             <CountriesContainer>
-                {[...Array(4)].map((u, i) => {
+                {[...Array(8)].map((u, i) => {
                     return <CountryCard index={i} isLoading={true} key={i} />;
                 })}
             </CountriesContainer>
