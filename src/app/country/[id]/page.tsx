@@ -2,7 +2,6 @@ import { fetchCountry } from "@/app/api/data";
 import BackButton from "@/app/components/BackButton";
 import Country from "@/app/components/Country";
 import MainContainer from "@/app/components/MainContainer";
-import Image from "next/image";
 
 export default async function Page(props: { params: Promise<{ id: string }> }) {
     const params = await props.params;

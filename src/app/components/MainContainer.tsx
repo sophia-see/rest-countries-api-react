@@ -1,6 +1,5 @@
 "use client"
 
-import { useAppContext } from "../context/AppContext";
 import useThemeStyles from "../hooks/useThemeStyles";
 
 interface MainContainerProps {

@@ -2,8 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link';
-import React, { JSX } from 'react';
-import { fetchCountries } from '../api/data';
+import React from 'react';
 import { Country } from '../api/types';
 import { useAppContext } from '../context/AppContext';
 import useThemeStyles from '../hooks/useThemeStyles';
