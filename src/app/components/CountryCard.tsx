@@ -6,6 +6,7 @@ import React, { JSX } from 'react';
 import { fetchCountries } from '../api/data';
 import { Country } from '../api/types';
 import { useAppContext } from '../context/AppContext';
+import useThemeStyles from '../hooks/useThemeStyles';
 
 function CountryDetail ({label, value}: {label: string, value?: string}): JSX.Element {
     return (
@@ -23,6 +24,7 @@ interface CountryProps {
 
 export default function CountryCard ({country, index, isLoading = false}: CountryProps) {
     const { isDarkMode } = useAppContext();
+    const { cardStyle } = useThemeStyles();
     const linkName = country?.name.common.toLowerCase().replace(" ", "_");
 
     const imageSkeleton = (
@@ -52,7 +54,7 @@ export default function CountryCard ({country, index, isLoading = false}: Countr
             className={`
                 mx-auto
                 flex flex-col gap-0
-                ${isDarkMode ? "text-dark-foreground bg-dark-background" : "text-light-foreground bg-light-background"}
+                ${cardStyle}
                 h-[336px] max-sm:max-w-full max-w-[264px] w-[264px]
                 rounded-[5px]
                 overflow-hidden

@@ -5,6 +5,7 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 import { toTitleCase } from '../utils';
 import { useAppContext } from '../context/AppContext';
+import useThemeStyles from '../hooks/useThemeStyles';
 
 interface CountryFilterProps {
     regions: string[];
@@ -12,13 +13,11 @@ interface CountryFilterProps {
 
 export default function CountryFilter({ regions }: CountryFilterProps) {
     const { isDarkMode } = useAppContext();
+    const { cardStyle } = useThemeStyles();
     const searchParams = useSearchParams();
     const regionFilter = searchParams?.get("region");
     const pathname = usePathname();
     const { replace } = useRouter();
-
-    const colorScheme = isDarkMode ? "text-dark-foreground bg-dark-background" : "text-light-foreground bg-light-background";
-
     const handleSelectRegion = (region: string) => {
         const params = new URLSearchParams(searchParams);
 
@@ -35,7 +34,7 @@ export default function CountryFilter({ regions }: CountryFilterProps) {
                     className={`
                         inline-flex justify-center gap-x-1.5 
                         rounded-md 
-                        ${colorScheme}
+                        ${cardStyle}
                         px-[24px] py-[14px] text-sm font-semibold 
                         shadow-[0px_2px_9px_0px_rgba(0,0,0,0.0532)]
                     `}
@@ -51,7 +50,7 @@ export default function CountryFilter({ regions }: CountryFilterProps) {
                     absolute left-0 lg:right-0 z-10
                     mt-2 w-[170px] origin-top-right 
                     rounded-md 
-                    ${colorScheme}
+                    ${cardStyle}
                     shadow-[0px_2px_9px_0px_rgba(0,0,0,0.0532)] ring-1 ring-black/5 
                     transition 
                     focus:outline-none 

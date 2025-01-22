@@ -1,6 +1,7 @@
 "use client"
 
 import { useAppContext } from "../context/AppContext";
+import useThemeStyles from "../hooks/useThemeStyles";
 
 interface MainContainerProps {
     children: React.ReactNode;
@@ -8,7 +9,7 @@ interface MainContainerProps {
 }
 
 export default function MainContainer ({ children, customStyles }: Readonly<MainContainerProps>) {
-    const {isDarkMode } = useAppContext();
+    const { mainStyle } = useThemeStyles();
 
     return (
         <div
@@ -16,7 +17,7 @@ export default function MainContainer ({ children, customStyles }: Readonly<Main
                 min-h-screen
                 ${customStyles}
                 flex flex-col
-                ${isDarkMode ? "text-main-dark-foreground bg-main-dark-background" : "text-main-light-foreground bg-main-light-background"}
+                ${mainStyle}
             `}
         >
             <div className="max-w-[1350px] w-full mx-auto">

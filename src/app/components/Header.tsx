@@ -2,9 +2,11 @@
 import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useAppContext } from "../context/AppContext";
+import useThemeStyles from "../hooks/useThemeStyles";
 
 export default function Header () {
     const { isDarkMode, setIsDarkMode } = useAppContext();
+    const { cardStyle } = useThemeStyles();
     const onToggleDarkMode = () => {
         setIsDarkMode(!isDarkMode);
     }
@@ -14,7 +16,7 @@ export default function Header () {
             <nav 
                 className={`
                     flex justify-between py-[30px] px-[16px]
-                    ${isDarkMode ? "text-dark-foreground bg-dark-background" : "text-light-foreground bg-light-background"}
+                    ${cardStyle}
                 `}
             >
                 <Link href={"/"} >

@@ -16,7 +16,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
     }
 
     return (
-        <MainContainer>
+        <MainContainer customStyles="py-[40px] px-[28px] md:p-[80px]">
             Country
         </MainContainer>
     )
