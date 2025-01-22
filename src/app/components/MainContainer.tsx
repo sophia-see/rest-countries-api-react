@@ -2,18 +2,19 @@
 
 import { useAppContext } from "../context/AppContext";
 
-export default function HomeContainer ({
-    children,
-    }: Readonly<{
+interface MainContainerProps {
     children: React.ReactNode;
-}>) {
+    customStyles?: string;
+}
+
+export default function MainContainer ({ children, customStyles }: Readonly<MainContainerProps>) {
     const {isDarkMode } = useAppContext();
 
     return (
         <div
             className={`
                 min-h-screen
-                py-[24px] px-[16px]
+                ${customStyles}
                 flex flex-col
                 ${isDarkMode ? "text-main-dark-foreground bg-main-dark-background" : "text-main-light-foreground bg-main-light-background"}
             `}
