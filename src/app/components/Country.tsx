@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image";
-import { Country as CountryType, NativeName } from "../api/types"
+import { Country as CountryType, Currency, NativeName } from "../api/types"
 import React from "react";
 import CountryDetail from "./CountryDetails";
 import CountryTag from "./CountryTag";
@@ -19,9 +19,9 @@ export default function Country ({country}: CountryProps) {
 
     const currencies = country?.currencies;
     const firstCurrency = currencies ? Object.entries(currencies)?.at(0) : null;
-    const currency = (firstCurrency?.at(1) as any)?.name;
+    const currency = (firstCurrency?.at(1) as Currency)?.name;
 
-    const languages = Object.values(country?.languages as {}).join(", ");
+    const languages = Object.values(country?.languages as object).join(", ");
     const tlds = country?.tld.join(", ");
     const flagUrl = country?.flags?.svg ?? country?.flags?.png ?? "";
 

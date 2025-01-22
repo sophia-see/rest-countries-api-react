@@ -23,7 +23,7 @@ export default async function Home(props: HomeProps) {
           lg:px-8 lg:mb-[48px]
         "
       >
-        <CountrySearch country={searchParams?.country}/>
+        <CountrySearch />
         <CountryFilter regions={regions}/>        
       </div>
       <Countries region={searchParams?.region} country={searchParams?.country}/>

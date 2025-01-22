@@ -1,3 +1,4 @@
+import { Country } from "./types";
 
 export async function fetchRegions() {
     try {
@@ -7,7 +8,7 @@ export async function fetchRegions() {
         }
         const data = await response.json();
 
-        const uniqueArray = data.reduce((accumulator: string[], currentValue: any) => {
+        const uniqueArray = data.reduce((accumulator: string[], currentValue: Country) => {
             if (!accumulator.includes(currentValue.region)) {
                 accumulator.push(currentValue.region);
             }
@@ -36,6 +37,7 @@ export async function fetchCountries(value?: string, type?: string) {
         return data;
 
     } catch (error) {
+        console.log({error})
         return [];
     }
 }
@@ -50,7 +52,7 @@ export async function fetchCountry(name: string) {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-        let data = await response.json();
+        const data = await response.json();
         const borders = data?.at(0)?.borders;
         let bordersName: string[] = [];
 
@@ -84,7 +86,7 @@ export async function fetchCountry(name: string) {
         return data;
 
     } catch (error) {
-        // console.error('Error fetching country:', error);
+        console.log({error})
         return null;
     }
 }

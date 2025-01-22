@@ -3,6 +3,11 @@ export type NativeName = {
     common: string;
 }
 
+export type Currency = {
+    name: string;
+    symbol: string;
+}
+
 export type Country = {
     name: {
         common: string;
@@ -22,10 +27,7 @@ export type Country = {
     capital: string[];
     tld: string[];
     currencies: {
-        [code: string]: {
-            name: string;
-            symbol: string;
-        };
+        [code: string]: Currency;
     };
     languages: {
         [code: string]: string;

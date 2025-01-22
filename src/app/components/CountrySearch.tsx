@@ -7,10 +7,7 @@ import { useDebouncedCallback } from "use-debounce";
 import { useAppContext } from "../context/AppContext";
 import useThemeStyles from "../hooks/useThemeStyles";
 
-interface CountrySearchProps {
-    country: string | undefined;
-}
-export default function CountrySearch ({country} : CountrySearchProps) {
+export default function CountrySearch () {
     const { isDarkMode } = useAppContext();
     const { cardStyle } = useThemeStyles();
     const searchParams = useSearchParams();
