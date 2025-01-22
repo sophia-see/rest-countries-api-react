@@ -1,4 +1,5 @@
 import { fetchCountry } from "@/app/api/data";
+import MainContainer from "@/app/components/MainContainer";
 
 export default async function Page(props: { params: Promise<{ id: string }> }) {
     const params = await props.params;
@@ -15,6 +16,8 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
     }
 
     return (
-        <div>Country {id} Page</div>
+        <MainContainer>
+            Country
+        </MainContainer>
     )
 }

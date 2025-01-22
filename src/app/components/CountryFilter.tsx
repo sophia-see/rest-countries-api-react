@@ -37,7 +37,7 @@ export default function CountryFilter({ regions }: CountryFilterProps) {
                         rounded-md 
                         ${colorScheme}
                         px-[24px] py-[14px] text-sm font-semibold 
-                        shadow-sm
+                        shadow-[0px_2px_9px_0px_rgba(0,0,0,0.0532)]
                     `}
                 >
                     {regionFilter ? `Region: ${toTitleCase(regionFilter)}` : "Filter by Region"}
@@ -52,7 +52,7 @@ export default function CountryFilter({ regions }: CountryFilterProps) {
                     mt-2 w-[166px] origin-top-right 
                     rounded-md 
                     ${colorScheme}
-                    shadow-lg ring-1 ring-black/5 
+                    shadow-[0px_2px_9px_0px_rgba(0,0,0,0.0532)] ring-1 ring-black/5 
                     transition 
                     focus:outline-none 
                     data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0

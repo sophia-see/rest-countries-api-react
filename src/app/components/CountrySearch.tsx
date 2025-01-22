@@ -37,7 +37,7 @@ export default function CountrySearch ({country} : CountrySearchProps) {
                 w-full lg:max-w-[480px]
                 py-[16px] px-[32px]
                 ${colorScheme}
-                rounded-[5px] shadow-sm
+                rounded-[5px] shadow-[0px_2px_9px_0px_rgba(0,0,0,0.0532)]
                 flex gap-[26px] items-center
             `}
         >
