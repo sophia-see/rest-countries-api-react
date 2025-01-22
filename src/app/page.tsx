@@ -15,7 +15,7 @@ export default async function Home(props: HomeProps) {
   const regions = await fetchRegions();
 
   return (
-    <MainContainer customStyles="py-[24px] px-[16px] md:py-[48px]">
+    <MainContainer mainCustomStyles="py-[24px] px-[16px] md:py-[48px]">
       <div 
         className="
           h-full 
