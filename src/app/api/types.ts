@@ -1,12 +1,14 @@
+export type NativeName = {
+    official: string;
+    common: string;
+}
+
 export type Country = {
     name: {
         common: string;
         official: string;
         nativeName: {
-            [languageCode: string]: {
-            official: string;
-            common: string;
-            };
+            [languageCode: string]: NativeName;
         };
     };
     population: number;

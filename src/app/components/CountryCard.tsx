@@ -7,14 +7,7 @@ import { fetchCountries } from '../api/data';
 import { Country } from '../api/types';
 import { useAppContext } from '../context/AppContext';
 import useThemeStyles from '../hooks/useThemeStyles';
-
-function CountryDetail ({label, value}: {label: string, value?: string}): JSX.Element {
-    return (
-        <div className='font-light text-[14px] leading-[16px]'>
-            <span className='font-semibold'>{label}:{" "}</span>{value}
-        </div>
-    )
-}
+import CountryDetail from './CountryDetails';
 
 interface CountryProps {
     country?: Country;
@@ -72,7 +65,7 @@ export default function CountryCard ({country, index, isLoading = false}: Countr
                         w-full h-[160px]
                         object-cover object-center
                     "
-                    src={country?.flags.png ?? ""} 
+                    src={country?.flags.svg ?? country?.flags.png ?? ""} 
                     alt={`flag of ${country?.name.common}`}
                     width={264}
                     height={160}
@@ -94,9 +87,9 @@ export default function CountryCard ({country, index, isLoading = false}: Countr
                                     flex flex-col gap-2
                                 '
                             >
-                                <CountryDetail label='Population' value={country?.population.toLocaleString()} />
-                                <CountryDetail label='Region' value={country?.region} />
-                                <CountryDetail label='Capital' value={country?.capital[0]} />
+                                <CountryDetail isHomePage={true} label='Population' value={country?.population.toLocaleString()} />
+                                <CountryDetail isHomePage={true} label='Region' value={country?.region} />
+                                <CountryDetail isHomePage={true} label='Capital' value={country?.capital[0]} />
                             </div>                    
                         </>
                 }
