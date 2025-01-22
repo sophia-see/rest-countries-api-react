@@ -57,6 +57,7 @@ export default function CountryCard ({country, index, isLoading = false}: Countr
                 rounded-[5px]
                 overflow-hidden
                 ${isLoading ? "pointer-events-none" : ""}
+                shadow-[0px_0px_7px_2px_rgba(0,0,0,0.0294)]
             `}
             key={index}
             
