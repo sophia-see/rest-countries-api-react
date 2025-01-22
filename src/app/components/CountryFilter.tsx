@@ -49,7 +49,7 @@ export default function CountryFilter({ regions }: CountryFilterProps) {
                 transition
                 className={`
                     absolute left-0 lg:right-0 z-10
-                    mt-2 w-[166px] origin-top-right 
+                    mt-2 w-[170px] origin-top-right 
                     rounded-md 
                     ${colorScheme}
                     shadow-[0px_2px_9px_0px_rgba(0,0,0,0.0532)] ring-1 ring-black/5 
