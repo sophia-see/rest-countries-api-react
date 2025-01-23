@@ -17,7 +17,7 @@ interface CountryProps {
 export default function CountryCard ({country, index, isLoading = false}: Readonly<CountryProps>) {
     const { isDarkMode } = useAppContext();
     const { cardStyle } = useThemeStyles();
-    const linkName = country?.name.common.toLowerCase().replace(" ", "_");
+    const linkName = country?.name.common.toLowerCase()
 
     const imageSkeleton = (
         <div

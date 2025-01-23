@@ -10,11 +10,6 @@ const nunitoSans = Nunito_Sans({
   subsets: ["latin"],
 });
 
-// export const metadata: Metadata = {
-//   title: "REST Countries",
-//   description: "View / search countries data",
-// };
-
 interface RootLayoutProps {
   children: React.ReactNode;
 }

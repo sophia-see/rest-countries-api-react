@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { fetchRegions } from "./api/data";
 import Countries from "./components/Countries";
 import CountryFilter from "./components/CountryFilter";
@@ -10,6 +11,12 @@ interface HomeProps {
     country?: string;
   }>;
 }
+
+export const metadata: Metadata = {
+  title: "REST Countries",
+  description: "View / search countries data",
+};
+
 export default async function Home(props: Readonly<HomeProps>) {
   const searchParams = await props.searchParams;
   const regions = await fetchRegions();
