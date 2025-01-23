@@ -9,7 +9,11 @@ interface AppContextProps {
 
 const AppContext = createContext<AppContextProps | undefined>(undefined);
 
-export const AppProvider = ({ children }: { children: ReactNode }) => {
+interface AppProviderProps {
+    children: ReactNode;
+}
+
+export const AppProvider = ({ children }: Readonly<AppProviderProps>) => {
     const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
 
     return (

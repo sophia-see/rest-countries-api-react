@@ -10,7 +10,7 @@ interface CountryProps {
 }
 
 
-export default function Country ({country}: CountryProps) {
+export default function Country ({country}: Readonly<CountryProps>) {
     const name = country?.name?.common ?? country?.name?.official ?? "";
 
     const nativeNames = country?.name?.nativeName;

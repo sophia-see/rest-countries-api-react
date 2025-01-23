@@ -14,7 +14,7 @@ interface CountryProps {
     isLoading?: boolean;
 }
 
-export default function CountryCard ({country, index, isLoading = false}: CountryProps) {
+export default function CountryCard ({country, index, isLoading = false}: Readonly<CountryProps>) {
     const { isDarkMode } = useAppContext();
     const { cardStyle } = useThemeStyles();
     const linkName = country?.name.common.toLowerCase().replace(" ", "_");

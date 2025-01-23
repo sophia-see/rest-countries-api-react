@@ -1,7 +1,11 @@
 import Link from "next/link";
 import useThemeStyles from "../hooks/useThemeStyles";
 
-export default function CountryTag ({text}: {text: string}) {
+interface CountryProps {
+    text: string;
+}
+
+export default function CountryTag ({ text }: Readonly<CountryProps>) {
     const { cardStyle } = useThemeStyles();
 
     return (

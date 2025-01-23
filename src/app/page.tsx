@@ -10,7 +10,7 @@ interface HomeProps {
     country?: string;
   }>;
 }
-export default async function Home(props: HomeProps) {
+export default async function Home(props: Readonly<HomeProps>) {
   const searchParams = await props.searchParams;
   const regions = await fetchRegions();
 

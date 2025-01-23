@@ -3,7 +3,11 @@ import BackButton from "@/app/components/BackButton";
 import Country from "@/app/components/Country";
 import MainContainer from "@/app/components/MainContainer";
 
-export default async function Page(props: { params: Promise<{ id: string }> }) {
+interface PageProps {
+    params: Promise<{ id: string }>
+}
+
+export default async function Page(props: Readonly<PageProps>) {
     const params = await props.params;
     const id = params.id;
     const countryName = id.replace("_", " ");

@@ -11,7 +11,7 @@ interface CountryFilterProps {
     regions: string[];
 }
 
-export default function CountryFilter({ regions }: CountryFilterProps) {
+export default function CountryFilter({ regions }: Readonly<CountryFilterProps>) {
     const { isDarkMode } = useAppContext();
     const { cardStyle } = useThemeStyles();
     const searchParams = useSearchParams();

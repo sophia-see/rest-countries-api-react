@@ -25,7 +25,7 @@ function CountriesContainer({ children }: { children: React.ReactNode }) {
     );
 }
 
-export default function Countries({ region, country }: CountriesProps) {
+export default function Countries({ region, country }: Readonly<CountriesProps>) {
     const [countries, setCountries] = React.useState<Country[]>([]);
     const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
